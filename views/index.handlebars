@@ -1,0 +1,87 @@
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Burgers everyday</a>
+
+
+    </div>
+</nav>
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+
+        <h1 class="header center orange-text">Node Burger App</h1>
+
+
+        <br><br>
+
+    </div>
+</div>
+<button type="submit" class="hello">lalala</button>
+
+
+<div class="section">
+    <div class="row">
+        <div class="col s12 m4"></div>
+        <div class="col s12 m4">
+            <div class="row center">
+
+                <form action="/burgers/create" method="POST">
+                    <input type="text" class="form-control" name="burger_name" value="" id="enter_text">
+                    <button type="submit" class="btn-large waves-effect waves-light orange" id="text-enter-button">Input
+                        Desired Burger</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="section">
+        <!--   Icon Section   -->
+        <div class="row">
+            <div class="col s12 m6">
+                <div>
+                    <h5 class="center">Speeds up development</h5>
+                </div>
+                {{#each burgers}}
+                {{#unless this.devoured}}
+                <div class="col-md-6 text-center">
+                    <pre>{{this.id}}. {{this.burger_name}}
+					</pre>
+                    <!-- {{this.Date}} -->
+                </div>
+                <div class="col-md-6 text-center">
+                    <form class="devour">
+                        <input input type="hidden" class="burger_id" type="text" value={{this.id}}>
+                        <button type="submit" class="btn-large waves-effect waves-light orange">Devour it!</button>
+                    </form>
+                </div>
+                {{/unless}}
+                {{/each}}
+            </div>
+
+            <div class="col s12 m6">
+                <div>
+                    <h5 class="center">User Experience Focused</h5>
+                </div>
+                {{#each burgers}}
+                {{#if this.devoured}}
+                <input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
+                {{/if}}
+                {{/each}}
+            </div>
+        </div>
+
+    </div>
+    <br><br>
+</div>
+
+<footer class="page-footer orange">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Company Bio</h5>
+                <p class="grey-text text-lighten-4">Hello, We are a team of burger lovers. Please don't judge and
+                    continue to support burger addiction </p>
+            </div>
+        </div>
+    </div>
+
+</footer>
