@@ -12,12 +12,15 @@ let burger = {
             cb(res);
         })
     }, 
-    update: ()=>{
-
+    update: (id, cb)=>{
+        orm.updateOne("burgers", id, (res)=>{
+            console.log(res);
+            cb(res)
+        })
     },
-    delete: ()=>{
-
-    }
+    // delete: ()=>{
+    
+    // }
 };
 
 module.exports = burger

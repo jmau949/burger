@@ -20,8 +20,9 @@ router.post("/burgers/create", (req, res)=>{
     });
 });
 
-router.put("/api/burgers/:id", (req, res)=>{
-    burger.update(req.params.id, ()=>{
+router.put("/burgers/:id", (req, res)=>{
+    burger.update(req.params.id, (result)=>{
+        console.log(req.params.id)
         res.sendStatus(200)
     })
 });

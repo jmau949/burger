@@ -9,13 +9,18 @@ let orm = {
         });
     },
     insertOne: (table, col, val, cb)=>{
-        console.log(`insert into ${table} (${col}) values ("${val}")`)
+
         connection.query(`insert into ${table} (${col}) values ("${val}")`, (err, result)=>{
             if (err) throw err;
             cb(result);
         });
     },
-    updateOne: ()=>{
+    updateOne: (table, condition, cb)=>{
+        console.log(`update ${table} set devoured = 0 where id = ${condition}`)
+        connection.query(`update ${table} set devoured = 1 where id = ${condition}`, (err, result)=>{
+            if (err) throw err;
+            cb(result)
+        })
 
     }
 };
